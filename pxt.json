@@ -1,5 +1,5 @@
 {
-    "name": "creative-robotics-kit",
+    "name": "robotics",
     "version": "0.0.1",
     "description": "Creative Robotics Kit for micro:bit is a robotics platform based on the micro:bit controller.",
     "license": "MIT",
@@ -12,8 +12,8 @@
         "main.ts",
         "README.md",
         "robotics.ts",
-        "_locales/zh-cn/creative-robotics-kit-strings.json",
-        "_locales/zh-cn/creative-robotics-kit-jsdoc-strings.json"
+        "_locales/zh-cn/robotics-strings.json",
+        "_locales/zh-cn/robotics-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

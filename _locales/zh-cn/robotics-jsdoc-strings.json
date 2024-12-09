@@ -7,7 +7,7 @@
     "robotics.readUltrasonicData": "读取超声波传感器的距离，单位厘⽶",
     "robotics.readLineTrackingData": "读取巡线传感器的状态（数字量），检测到⿊线输出 0，检测到⽩线输出 1",
     "robotics.readMoistureData": "读取⼟壤湿度的值（模拟量），范围0~1023。",
-    "robotics.readDht11Data": "读取DHT11传感器的温度值和湿度值。温度值有两个单位，分别是℃和℉，湿度的单位是“%”",
+    "robotics.readDht11Data": "读取DHT11传感器的温度值和湿度值。温度值有两个单位，分别是℃和℉，湿度的单位是'%'",
     "robotics.readLightData": "读取环境光线传感器的值（模拟量）",
     "robotics.readInfraredData": "⼈体红外传感器（数字量）",
     "robotics.ws2812Init": "设置RGB的灯总数",
