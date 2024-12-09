@@ -1,0 +1,21 @@
+{
+    "robotics": "",
+    "robotics.motorRun": "设置M1,M2电机的转速，可以分别设置，也可以⼀起设置。",
+    "robotics.motorStop": "停⽌M1,M2电机，可分别设置，也可以⼀起设置。",
+    "robotics.servoRun180": "设置180°舵机的⻆度",
+    "robotics.servoRun360": "设置360°舵机的速度",
+    "robotics.readUltrasonicData": "读取超声波传感器的距离，单位厘⽶",
+    "robotics.readLineTrackingData": "读取巡线传感器的状态（数字量），检测到⿊线输出 0，检测到⽩线输出 1",
+    "robotics.readMoistureData": "读取⼟壤湿度的值（模拟量），范围0~1023。",
+    "robotics.readDht11Data": "读取DHT11传感器的温度值和湿度值。温度值有两个单位，分别是℃和℉，湿度的单位是“%”",
+    "robotics.readLightData": "读取环境光线传感器的值（模拟量）",
+    "robotics.readInfraredData": "⼈体红外传感器（数字量）",
+    "robotics.ws2812Init": "设置RGB的灯总数",
+    "robotics.ws2812SBrightness": "设置RGB灯的亮度值",
+    "robotics.ws2812Off": "设置RGB灯全部熄灭",
+    "robotics.ws2812Color": "设置RGB灯显⽰的颜⾊（固定颜⾊）",
+    "robotics.getWs2812Color": "通过三原⾊设置RGB灯的颜⾊",
+    "robotics.ws2812Rainbow": "设置RGB灯显⽰渐变颜⾊",
+    "robotics.ws2812Shift": "移动 LED 的颜⾊序列，移动单位⾃定义设置。⽤于后⾯制作流⽔灯。",
+    "robotics.ws2812Rotate": "循环移动 LED 的颜⾊序列，移动单位⾃定义设置。"
+}
