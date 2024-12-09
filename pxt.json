@@ -12,8 +12,8 @@
         "main.ts",
         "README.md",
         "robotics.ts",
-        "_locales/zh-cn/robotics-strings.json",
-        "_locales/zh-cn/robotics-jsdoc-strings.json"
+        "_locales/zh-cn/creative-robotics-kit-strings.json",
+        "_locales/zh-cn/creative-robotics-kit-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
