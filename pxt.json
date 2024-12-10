@@ -5,6 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
+        "servo": "*",
         "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.2"
     },
     "files": [
@@ -13,7 +14,10 @@
         "README.md",
         "robotics.ts",
         "_locales/zh-cn/robotics-strings.json",
-        "_locales/zh-cn/robotics-jsdoc-strings.json"
+        "_locales/zh-cn/robotics-jsdoc-strings.json",
+        "i2c.cpp",
+        "enums.d.ts",
+        "shims.d.ts"
     ],
     "testFiles": [
         "test.ts"
