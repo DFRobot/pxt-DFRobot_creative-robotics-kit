@@ -2,7 +2,7 @@
  * robotics blocks
  */
 
-//% weight=100 color=#df6721 icon="\uf544" block="Robotics Kit"
+//% weight=100 color=#df6721 icon="\uf185" block="Robotics Kit"
 //% groups="['Motor', 'Servo', 'Sensor', 'RGB']"
 namespace robotics {
     
@@ -104,14 +104,14 @@ namespace robotics {
     /**
      * Setting the speed of a 360° servo.
      * @param pin to pin, eg: CustomAllPin.P0
-     * @param dir to dir, eg: MotorDirection.CW
      * @param speed to speed, eg: 50
+     * @param dir to dir, eg: MotorDirection.CW
      */
-    //% block="pin %pin servo rotate %dir at %speed speed"
+    //% block="pin %pin servo rotate at %speed speed %dir"
     //% group="Servo"
     //% speed.min=0 speed.max=100
     //% weight=85
-    export function servoRun360(pin: CustomAllPin, dir: MotorDirection, speed: number): void {
+    export function servoRun360(pin: CustomAllPin, speed: number, dir: MotorDirection): void {
         // Add code 
     }
 
@@ -159,6 +159,7 @@ namespace robotics {
     //% block="Read pin %pin %type"
     //% group="Sensor"
     //% weight=70
+    //% advanced=true
     export function readDht11Data(pin: CustomAllPin, type: DataType): number {
         // Add code 
         return 0
@@ -171,6 +172,7 @@ namespace robotics {
     //% block="Read pin %pin Ambient light"
     //% group="Sensor"
     //% weight=65
+    //% advanced=true
     export function readLightData(pin: CustomAnalogPin): number {
         // Add code 
         return 0
@@ -183,15 +185,16 @@ namespace robotics {
     //% block="Read pin %pin Digital infrared motion sensor"
     //% group="Sensor"
     //% weight=60
+    //% advanced=true
     export function readInfraredData(pin: CustomAllPin): number {
         // Add code 
         return 0
     }
 
     /**
-     * Set the total number of RGB lights.
+     * Initialize a given number of LEDs on the RGB LED strip at a specific pin
      * @param pin to pin, eg: CustomAllPin.P0
-     * @param num to num, eg: 5
+     * @param num to num, eg: 3
      */
     //% block="pin %pin %num RGB LEDs"
     //% group="RGB"
@@ -209,8 +212,51 @@ namespace robotics {
     //% group="RGB"
     //% brightness.min=0 brightness.max=255
     //% weight=50
+    //% advanced=true
     export function ws2812SBrightness(brightness: number): void {
         
+    }
+
+    /**
+     * The LED positions where you wish to begin and end
+     * @param from to start ,eg: 1
+     * @param to to end ,eg: 2
+     */
+
+    //% block="leds from %from to %to"
+    //% group="RGB"
+    //% from.min=1 from.max=7
+    //% to.min=1 to.max=7
+    //% weight=48
+    export function ws2812LedRange(from: number, to: number): number {
+        return ((from - 1) << 16) + (2 << 8) + (to);
+    }
+
+    /**
+     * Set the color displayed by the RGB lights.
+     * @param index to index ,eg: 1
+     * @param color to color ,eg: 0xFF0000
+     */
+    //% block="RGB %index show color %color"
+    //% group="RGB"
+    //% index.min=1 index.max=7
+    //% color.shadow="colorNumberPicker"
+    //% weight=45
+    export function ws2812SetIndexColor(index: number, color: number): void {
+        
+    }
+
+    /**
+     * All LEDs show a given color
+     * @param color to color ,eg: 0xFF0000
+     */
+
+    //% block="show color %color"
+    //% group="RGB"
+    //% weight=43
+    //% color.shadow="colorNumberPicker"
+    export function ws2812ShowColor(color: number): void {
+
     }
 
     /**
@@ -218,23 +264,54 @@ namespace robotics {
      */
     //% block="clear all RGB LEDs"
     //% group="RGB"
-    //% weight=45
+    //% weight=40
     export function ws2812Off(): void {
 
     }
 
+    
+
     /**
-     * Set the color displayed by the RGB lights.
-     * @param from to start ,eg: 1
-     * @param to to end ,eg: 5
+     * Shift the color sequence of the LED, with a customizable movement unit. This is used for creating a running lights effect later on.
+     * @param offset to offset ,eg: 0
      */
-    //% block="RGB %from to %to show color %color"
+    //% block="shift pixels by %offset"
     //% group="RGB"
-    //% from.min=1 from.max=7
-    //% to.min=1 to.max=7
-    //% color.shadow="colorNumberPicker"
-    //% weight=40
-    export function ws2812Color(from: number, to: number, color: number): void {
+    //% weight=38
+    //% advanced=true
+    export function ws2812Shift(offset: number): void {
+        
+    }
+
+    /**
+     * Loop the color sequence of the LED with a custom-defined movement unit.
+     * @param offset to offset ,eg: 0
+     */
+    //% block="rotate pixels by %offset"
+    //% group="RGB"
+    //% weight=35
+    //% advanced=true
+    export function ws2812Rotate(offset: number): void {
+        
+    }
+
+    /**
+     * Set the RGB lights to display a gradient of colors.
+     * @param start to start ,eg: 1
+     * @param end to end ,eg: 5
+     * @param startHue to startHue ,eg: 1
+     * @param endHue to endHue ,eg: 360
+     */
+    //% block="RGB %start to %end show gradient color from %startHue to %endHue"
+    //% group="RGB"
+    //% start.min=1 start.max=7 
+    //% end.min=1 end.max=7 
+    //% startHue.min=0 startHue.max=360
+    //% endHue.min=0 endHue.max=360
+    //% weight=30
+    //% inlineInputMode=inline
+    //% advanced=true
+    export function ws2812Rainbow(start: number, end: number, startHue: number, endHue: number): void {
         
     }
 
@@ -249,49 +326,9 @@ namespace robotics {
     //% red.min=0 red.max=255
     //% green.min=0 green.max=255
     //% blue.min=0 blue.max=255
-    //% weight=35
+    //% weight=25
+    //% advanced=true
     export function getWs2812Color(red: number, green: number, blue: number): number {
         return (red << 16) + (green << 8) + (blue);
     }
-
-    /**
-     * Set the RGB lights to display a gradient of colors.
-     * @param start to start ,eg: 1
-     * @param end to end ,eg: 5
-     * @param startHue to startHue ,eg: 1
-     * @param endHue to endHue ,eg: "360
-     */
-    //% block="%start to %end RGB show gradient color from %startHue to %endHue"
-    //% group="RGB"
-    //% start.min=1 start.max=7 
-    //% end.min=1 end.max=7 
-    //% startHue.min=0 startHue.max=360
-    //% endHue.min=0 endHue.max=360
-    //% weight=30
-    export function ws2812Rainbow(start: number, end: number, startHue: number, endHue: number): void {
-        
-    }
-
-    /**
-     * Shift the color sequence of the LED, with a customizable movement unit. This is used for creating a running lights effect later on.
-     * @param offset to offset ,eg: 0
-     */
-    //% block="shift pixels by %offset"
-    //% group="RGB"
-    //% weight=25
-    export function ws2812Shift(offset: number): void {
-        
-    }
-
-    /**
-     * Loop the color sequence of the LED with a custom-defined movement unit.
-     * @param offset to offset ,eg: 0
-     */
-    //% block="rotate pixels by %offset"
-    //% group="RGB"
-    //% weight=20
-    export function ws2812Rotate(offset: number): void {
-        
-    }
-
 }
