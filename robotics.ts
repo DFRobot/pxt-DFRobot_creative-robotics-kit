@@ -63,6 +63,10 @@ namespace robotics {
         Humidity
     }
 
+    let minAngle: number = 0;
+    let maxAngle: number = 180;
+    let stopOnNeutral: boolean = false;
+
     let address = 0x10; // I2C address of the sensor
     let rgbBright = 255;
     let rgbPin = -1;
@@ -123,12 +127,15 @@ namespace robotics {
      * @param pin to pin, eg: CustomAllPin.P0
      * @param degree to degree, eg: 90
      */
-    //% block="set pin %pin servo to %degree degree"
+    //% block="set pin %pin servo to %degree=protractorPicker degree"
     //% group="Servo"
-    //% degree.min=0 degree.max=180
     //% weight=90
     export function servoRun180(pin: CustomAllPin, degree: number): void {
-        
+        degree = degree | 0;
+        degree = Math.clamp(minAngle, maxAngle, degree);
+        let _pin = toPwmOnlyPin(pin);
+        pins.servoSetContinuous(_pin, false);
+        pins.servoWritePin(_pin, degree);
     }
 
     /**
@@ -142,7 +149,11 @@ namespace robotics {
     //% speed.min=0 speed.max=100
     //% weight=85
     export function servoRun360(pin: CustomAllPin, speed: number, dir: MotorDirection): void {
-         
+        const degrees = Math.clamp(minAngle, maxAngle, Math.map(dir === MotorDirection.CCW ? -speed : speed, -100, 100, minAngle, maxAngle));
+        const neutral = (maxAngle - minAngle) >> 1;
+        let _pin = toPwmOnlyPin(pin);
+        pins.servoSetContinuous(_pin, true);
+        pins.servoWritePin(_pin, degrees);
     }
 
     /**
@@ -684,6 +695,22 @@ namespace robotics {
             case CustomAllPin.P15: return DigitalPin.P15;
             case CustomAllPin.P16: return DigitalPin.P16;
             default: return DigitalPin.P0;
+        }
+    }
+
+    function toPwmOnlyPin(pin: CustomAllPin): AnalogPin {
+        switch (pin) {
+            case CustomAllPin.P0: return AnalogPin.P0;
+            case CustomAllPin.P1: return AnalogPin.P1;
+            case CustomAllPin.P2: return AnalogPin.P2;
+            case CustomAllPin.P8: return AnalogPin.P8;
+            case CustomAllPin.P9: return AnalogPin.P9;
+            case CustomAllPin.P12: return AnalogPin.P12;
+            case CustomAllPin.P13: return AnalogPin.P13;
+            case CustomAllPin.P14: return AnalogPin.P14;
+            case CustomAllPin.P15: return AnalogPin.P15;
+            case CustomAllPin.P16: return AnalogPin.P16;
+            default: return AnalogPin.P0;
         }
     }
 }

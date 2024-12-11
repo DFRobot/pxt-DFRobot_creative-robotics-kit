@@ -5,12 +5,9 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "servo": "*",
         "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.2"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
         "README.md",
         "robotics.ts",
         "_locales/zh-cn/robotics-strings.json",

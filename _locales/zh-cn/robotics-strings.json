@@ -1,7 +1,7 @@
 {
     "robotics.motorRun|block": "电机 %motor ⽅向 %dir 速度 %speed",
     "robotics.motorStop|block": "电机停⽌ %motor",
-    "robotics.servoRun180|block": "设置 %pin 引脚伺服舵机为 %degree 度",
+    "robotics.servoRun180|block": "设置 %pin 引脚伺服舵机为 %degree=protractorPicker 度",
     "robotics.servoRun360|block": "设置引脚 %pin 以 %speed \\%的速度 %dir",
     "robotics.readUltrasonicData|block": "获取 %pin 引脚超声波距离 单位（cm）",
     "robotics.readLineTrackingData|block": "读取巡线传感器 %pin 状态",
