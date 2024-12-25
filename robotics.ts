@@ -321,7 +321,7 @@ namespace robotics {
      * @param pin to pin, eg: CustomAllPin.P0
      * @param num to num, eg: 3
      */
-    //% block="pin %pin %num RGB LEDs"
+    //% block="pin $pin $num RGB LEDs"
     //% group="RGB"
     //% num.min=1 num.max=7
     //% weight=55

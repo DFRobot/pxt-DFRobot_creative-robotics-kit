@@ -9,7 +9,7 @@
     "robotics.readDht11Data|block": "读取引脚 %pin %type",
     "robotics.readLightData|block": "读取引脚 %pin 环境光",
     "robotics.readInfraredData|block": "读取引脚 %pin ⼈体红外运动传感器",
-    "robotics.ws2812Init|block": "设置引脚 %pin 灯总数 %num",
+    "robotics.ws2812Init|block": "设置引脚 $pin 灯总数 $num",
     "robotics.ws2812SBrightness|block": "灯带亮度为 %brightness",
     "robotics.ws2812LedRange|block": "灯号从 %from 到 %to",
     "robotics.ws2812SetIndexColor|block": "设置 灯号%index 显示颜色%color",

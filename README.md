@@ -4,9 +4,10 @@ The Creative Robotics Kit for micro:bit is a robot platform based on the micro:b
 
 The platform's IO expansion board provides 10 digital/analog 3-pin interfaces and 3 I2C interfaces, enabling easy expansion and control of a wide range of devices. The expansion board features a built-in dual motor driver, eliminating the need to use additional pins. Furthermore, the expansion board exposes the micro:bit edge connector pins (0, 1, 2, 3V, GND), offering developers more interface options.
 
-[]()
+[product page](https://www.dfrobot.com/product-367.html)
 
-[Module Document Address]()
+[educational materials and tutorials](https://learn.dfrobot.com/)
+
 
 ## Basic usage
 1. Set the direction and speed of motors connected to M1 and M2 ports.
