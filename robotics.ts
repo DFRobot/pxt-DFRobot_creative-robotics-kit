@@ -80,12 +80,12 @@ namespace robotics {
     }
     
     /**
-     * Set the speed of motors M1 and M2, they can be set individually or together.
+     * Set the speed of Motors M1 and M2, they can be set individually or together.
      * @param motor to motor, eg: MotorType.M1
      * @param dir to dir, eg: MotorDirection.CW
      * @param speed to speed, eg: 100
      */
-    //% block="motor %motor dir %dir speed %speed"
+    //% block="Motor %motor dir %dir speed %speed"
     //% group="Motor"
     //% speed.min=0 speed.max=255
     //% weight=100
@@ -112,10 +112,10 @@ namespace robotics {
     }
 
     /**
-     * Stop motors M1 and M2, they can be set individually or together.
+     * Stop Motors M1 and M2, they can be set individually or together.
      * @param motor to motor, eg: MotorType.M1
      */
-    //% block="motor stop %motor"
+    //% block="Motor stop %motor"
     //% group="Motor"
     //% weight=95
     export function motorStop(motor: MotorType): void {
@@ -145,7 +145,7 @@ namespace robotics {
      * @param speed to speed, eg: 50
      * @param dir to dir, eg: MotorDirection.CW
      */
-    //% block="pin %pin servo rotate at %speed \\% speed %dir"
+    //% block="pin $pin servo rotate $dir at $speed \\% speed"
     //% group="Servo"
     //% speed.min=0 speed.max=100
     //% weight=85
