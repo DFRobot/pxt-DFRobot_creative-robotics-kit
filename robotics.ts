@@ -80,7 +80,7 @@ namespace robotics {
     }
     
     /**
-     * Set the speed of Motors M1 and M2, they can be set individually or together.
+     * Set the speed of M1 and M2 motors, which can be configured separately or together.
      * @param motor to motor, eg: MotorType.M1
      * @param dir to dir, eg: MotorDirection.CW
      * @param speed to speed, eg: 100
@@ -112,7 +112,7 @@ namespace robotics {
     }
 
     /**
-     * Stop Motors M1 and M2, they can be set individually or together.
+     * Stop the rotation of M1 and M2 motors, which can be configured separately or together.
      * @param motor to motor, eg: MotorType.M1
      */
     //% block="Motor stop %motor"
@@ -124,7 +124,7 @@ namespace robotics {
     }
 
     /**
-     * Setting the angle of a 180° servo.
+     * Set the angle of a 180° servo motor, range: 0~180°.
      * @param pin to pin, eg: CustomAllPin.P0
      * @param degree to degree, eg: 90
      */
@@ -140,7 +140,7 @@ namespace robotics {
     }
 
     /**
-     * Setting the speed of a 360° servo.
+     * Set the forward and reverse speed of a 360° servo motor, range: 0~100.
      * @param pin to pin, eg: CustomAllPin.P0
      * @param speed to speed, eg: 50
      * @param dir to dir, eg: MotorDirection.CW
@@ -158,7 +158,7 @@ namespace robotics {
     }
 
     /**
-     * Reading the distance from an ultrasonic sensor in centimeters.
+     * Read the distance detected by the ultrasonic sensor, in centimeters.
      * @param pin to pin, eg: CustomAllPin.P0
      */
     //% block="Get ultrasonic sensor range from pins %pin in units(cm)"
@@ -175,7 +175,7 @@ namespace robotics {
     }
 
     /**
-     * Reading the status of a line-following sensor (digital output), output 0 when detecting a black line, and output 1 when detecting a white line.
+     * Read the state of the line-tracking sensor (digital value): outputs 0 when detecting a black line, and 1 when detecting a white line.
      * @param pin to pin, eg: CustomAllPin.P0
      */
     //% block="Read Line tracking sensor %pin state"
@@ -187,7 +187,7 @@ namespace robotics {
     }
 
     /**
-     * Read the soil moisture value (analog signal), with a range of 0 to 1023.
+     * Read the soil moisture value (analog value), range: 0~1023.
      * @param pin to pin, eg: CustomAnalogPin.P0
      */
     //% block="Read pin %pin soil moisture sensor"
@@ -199,7 +199,7 @@ namespace robotics {
     }
 
     /**
-     * Reading the temperature and humidity values from a DHT11 sensor. The temperature values are available in two units, Celsius (℃) and Fahrenheit (℉), while the humidity is expressed as a percentage (%).
+     * Read the temperature and humidity values from the DHT11 sensor. Temperature values are available in two units: °C and °F. Humidity is expressed in "%".
      * @param pin to pin, eg: CustomAllPin.P0
      * @param type to type, eg: DataType.TemperatureC
      */
@@ -293,7 +293,7 @@ namespace robotics {
     }
 
     /**
-     * Reading the value from an ambient light sensor (Analog signal).
+     * Read the value from the ambient light sensor (analog value).
      * @param pin to pin, eg: CustomAnalogPin.P0
      */
     //% block="Read pin %pin Ambient light"
@@ -305,7 +305,7 @@ namespace robotics {
     }
 
     /**
-     * Human Infrared Sensor (Digital signal).
+     * Read the value detected by the human infrared sensor (digital value). Outputs 1 when motion is detected; outputs 0 when no motion is detected.
      * @param pin to pin, eg: CustomAllPin.P0
      */
     //% block="Read pin %pin Digital infrared motion sensor"
@@ -317,7 +317,7 @@ namespace robotics {
     }
 
     /**
-     * Initialize a given number of LEDs on the RGB LED strip at a specific pin
+     * Set the total number of RGB lights.
      * @param pin to pin, eg: CustomAllPin.P0
      * @param num to num, eg: 3
      */
@@ -336,7 +336,7 @@ namespace robotics {
     }
 
     /**
-     * Setting the brightness value of RGB lights, range: 0 to 255.
+     * Set the brightness of RGB lights.
      * @param brightness to brightness, eg: 200
      */
     //% block="RGB brightness %brightness"
@@ -349,7 +349,7 @@ namespace robotics {
     }
 
     /**
-     * The LED positions where you wish to begin and end
+     * Set the starting and ending light numbers for the RGB lights.
      * @param from to start ,eg: 1
      * @param to to end ,eg: 2
      */
@@ -365,7 +365,7 @@ namespace robotics {
     }
 
     /**
-     * Set the color displayed by the RGB lights.
+     * Set the display color for a specific light number.
      * @param index to index ,eg: 1
      * @param color to color ,eg: 0xFF0000
      */
@@ -400,7 +400,7 @@ namespace robotics {
     }
 
     /**
-     * All LEDs show a given color
+     * Set the display color for all light numbers.
      * @param color to color ,eg: 0xFF0000
      */
 
@@ -436,7 +436,7 @@ namespace robotics {
     }
 
     /**
-     * Shift the color sequence of the LED, with a customizable movement unit. This is used for creating a running lights effect later on.
+     * Move or transform the color or state on the light strip by x units.
      * @param offset to offset ,eg: 0
      */
     //% block="shift pixels by %offset"
@@ -480,7 +480,7 @@ namespace robotics {
     }
 
     /**
-     * Loop the color sequence of the LED with a custom-defined movement unit.
+     * Cycle the color or state on the light strip by x units.
      * @param offset to offset ,eg: 0
      */
     //% block="rotate pixels by %offset"
@@ -539,7 +539,7 @@ namespace robotics {
     }
 
     /**
-     * Set the RGB lights to display a gradient of colors.
+     * Set RGB lights to display gradient colors; range: 1~360.
      * @param start to start ,eg: 1
      * @param end to end ,eg: 5
      * @param startHue to startHue ,eg: 1
@@ -610,7 +610,7 @@ namespace robotics {
     }
 
     /**
-     * Set the color of the RGB lights using the three primary colors.
+     * Set RGB light colors using primary colors (red, green, blue).
      * @param red to red ,eg: 255
      * @param green to green ,eg: 255
      * @param blue to blue ,eg: 255
