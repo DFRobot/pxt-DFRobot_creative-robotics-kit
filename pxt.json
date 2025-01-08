@@ -1,6 +1,6 @@
 {
     "name": "robotics",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Creative Robotics Kit for micro:bit is a robotics platform based on the micro:bit controller.",
     "license": "MIT",
     "dependencies": {
