@@ -7,7 +7,7 @@
     "robotics.readLineTrackingData|block": "Leer estado del seguidor de línea %pin",
     "robotics.readMoistureData|block": "Leer pin %pin sensor de humedad del suelo",
     "robotics.readDht11Data|block": "Leer pin %pin %type",
-    "robotics.readLightData|block": "Leer pin %pin Senosr luz ambiente",
+    "robotics.readLightData|block": "Leer pin %pin Sensor luz ambiente",
     "robotics.readInfraredData|block": "Leer pin %pin Sensor digital de movimiento infrarrojo",
     "robotics.ws2812Init|block": "pin $pin $num RGB LEDs",
     "robotics.ws2812SBrightness|block": "Brillo RGB %brightness",
@@ -30,5 +30,5 @@
     "{id:category}robotics": "Robotics Kit",
     "{id:group}Motor": "Motor",
     "{id:group}Servo": "Servo",
-    "{id:group}Sensor": "Transductor"
+    "{id:group}Sensor": "Sensores"
 }
