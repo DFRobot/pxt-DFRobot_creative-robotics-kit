@@ -6,7 +6,7 @@ The platform's IO expansion board provides 10 digital/analog 3-pin interfaces an
 
 [product page](https://www.dfrobot.com/product-367.html)
 
-[educational materials and tutorials](https://learn.dfrobot.com/)
+[educational materials and tutorials](https://wiki.dfrobot.com/Creative_Robotics_Kit_for_microbit_SKU_CSM0061)
 
 
 ## Basic usage
