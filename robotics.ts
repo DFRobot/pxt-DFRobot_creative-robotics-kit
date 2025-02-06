@@ -396,7 +396,7 @@ namespace robotics {
             neopixelBuf[i * 3 + 1] = Math.round(r)
             neopixelBuf[i * 3 + 2] = Math.round(b)
         }
-        ws2812b.sendBuffer(neopixelBuf, rgbPin);
+        light.sendWS2812Buffer(neopixelBuf, rgbPin);
     }
 
     /**
@@ -421,7 +421,7 @@ namespace robotics {
             if ((i % 3) == 2)
                 neopixelBuf[i] = Math.round(b)
         }
-        ws2812b.sendBuffer(neopixelBuf, rgbPin)
+        light.sendWS2812Buffer(neopixelBuf, rgbPin)
     }
 
     /**
@@ -475,7 +475,7 @@ namespace robotics {
                     neopixelBuf[i * 3 + 2] = 0
                 }
             }
-            ws2812b.sendBuffer(neopixelBuf, rgbPin)
+            light.sendWS2812Buffer(neopixelBuf, rgbPin)
         }
     }
 
@@ -513,7 +513,7 @@ namespace robotics {
                     neopixelBuf[i * 3 + 1] = offdata[i * 3 + 1]
                     neopixelBuf[i * 3 + 2] = offdata[i * 3 + 2]
                 }
-                ws2812b.sendBuffer(neopixelBuf, rgbPin)
+                light.sendWS2812Buffer(neopixelBuf, rgbPin)
             }
             else {
                 let offdata = pins.createBuffer(3 * Math.abs(offset));
@@ -533,7 +533,7 @@ namespace robotics {
                     neopixelBuf[i * 3 + 1] = offdata[(i - steps + Math.abs(offset)) * 3 + 1]
                     neopixelBuf[i * 3 + 2] = offdata[(i - steps + Math.abs(offset)) * 3 + 2]
                 }
-                ws2812b.sendBuffer(neopixelBuf, rgbPin)
+                light.sendWS2812Buffer(neopixelBuf, rgbPin)
             }
         }
     }
@@ -606,7 +606,7 @@ namespace robotics {
             }
             writeBuff(start + steps - 1, hsl(endHue, saturation, luminance));
         }
-        ws2812b.sendBuffer(neopixelBuf, rgbPin)
+        light.sendWS2812Buffer(neopixelBuf, rgbPin)
     }
 
     /**
