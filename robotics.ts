@@ -74,15 +74,15 @@ namespace robotics {
     let neopixelBuf: Buffer;
     let ledsum = -1;
 
-    //% advanced=true shim=i2c::init
+    //% advanced=true shim=roboticsI2C::init
     function init(): void {
         return;
     }
     
     /**
      * Set the speed of M1 and M2 motors, which can be configured separately or together.
-     * @param motor to motor, eg: MotorType.M1
-     * @param dir to dir, eg: MotorDirection.CW
+     * @param motor to motor, eg: robotics.MotorType.M1
+     * @param dir to dir, eg: robotics.MotorDirection.CW
      * @param speed to speed, eg: 100
      */
     //% block="Motor %motor dir %dir speed %speed"
@@ -113,7 +113,7 @@ namespace robotics {
 
     /**
      * Stop the rotation of M1 and M2 motors, which can be configured separately or together.
-     * @param motor to motor, eg: MotorType.M1
+     * @param motor to motor, eg: robotics.MotorType.M1
      */
     //% block="Motor stop %motor"
     //% group="Motor"
@@ -125,7 +125,7 @@ namespace robotics {
 
     /**
      * Set the angle of a 180° servo motor, range: 0~180°.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      * @param degree to degree, eg: 90
      */
     //% block="set pin %pin servo to %degree=protractorPicker degree"
@@ -141,9 +141,9 @@ namespace robotics {
 
     /**
      * Set the forward and reverse speed of a 360° servo motor, range: 0~100.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      * @param speed to speed, eg: 50
-     * @param dir to dir, eg: MotorDirection.CW
+     * @param dir to dir, eg: robotics.MotorDirection.CW
      */
     //% block="pin $pin servo rotate $dir at $speed \\% speed"
     //% group="Servo"
@@ -159,7 +159,7 @@ namespace robotics {
 
     /**
      * Read the distance detected by the ultrasonic sensor, in centimeters.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      */
     //% block="Get ultrasonic sensor range from pins %pin in units(cm)"
     //% group="Sensor"
@@ -176,7 +176,7 @@ namespace robotics {
 
     /**
      * Read the state of the line-tracking sensor (digital value): outputs 0 when detecting a black line, and 1 when detecting a white line.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      */
     //% block="Read Line tracking sensor %pin state"
     //% group="Sensor"
@@ -188,7 +188,7 @@ namespace robotics {
 
     /**
      * Read the soil moisture value (analog value), range: 0~1023.
-     * @param pin to pin, eg: CustomAnalogPin.P0
+     * @param pin to pin, eg: robotics.CustomAnalogPin.P0
      */
     //% block="Read pin %pin soil moisture sensor"
     //% group="Sensor"
@@ -200,8 +200,8 @@ namespace robotics {
 
     /**
      * Read the temperature and humidity values from the DHT11 sensor. Temperature values are available in two units: °C and °F. Humidity is expressed in "%".
-     * @param pin to pin, eg: CustomAllPin.P0
-     * @param type to type, eg: DataType.TemperatureC
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
+     * @param type to type, eg: robotics.DataType.TemperatureC
      */
     //% block="Read pin %pin %type"
     //% group="Sensor"
@@ -294,7 +294,7 @@ namespace robotics {
 
     /**
      * Read the value from the ambient light sensor (analog value).
-     * @param pin to pin, eg: CustomAnalogPin.P0
+     * @param pin to pin, eg: robotics.CustomAnalogPin.P0
      */
     //% block="Read pin %pin Ambient light"
     //% group="Sensor"
@@ -306,7 +306,7 @@ namespace robotics {
 
     /**
      * Read the value detected by the human infrared sensor (digital value). Outputs 1 when motion is detected; outputs 0 when no motion is detected.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      */
     //% block="Read pin %pin Digital infrared motion sensor"
     //% group="Sensor"
@@ -318,7 +318,7 @@ namespace robotics {
 
     /**
      * Set the total number of RGB lights.
-     * @param pin to pin, eg: CustomAllPin.P0
+     * @param pin to pin, eg: robotics.CustomAllPin.P0
      * @param num to num, eg: 3
      */
     //% block="pin $pin $num RGB LEDs"
@@ -336,10 +336,10 @@ namespace robotics {
     }
 
     /**
-     * Set the brightness of RGB lights.
+     * Set the brightness of RGB LEDs lights.
      * @param brightness to brightness, eg: 200
      */
-    //% block="RGB brightness %brightness"
+    //% block="RGB LEDs brightness %brightness"
     //% group="RGB"
     //% brightness.min=0 brightness.max=255
     //% weight=50
@@ -349,12 +349,12 @@ namespace robotics {
     }
 
     /**
-     * Set the starting and ending light numbers for the RGB lights.
+     * Set the starting and ending light numbers for the RGB LEDs lights.
      * @param from to start ,eg: 1
      * @param to to end ,eg: 2
      */
 
-    //% block="leds from %from to %to"
+    //% block="RGB LEDs from %from to %to"
     //% group="RGB"
     //% from.min=1 from.max=7
     //% to.min=1 to.max=7
@@ -369,7 +369,7 @@ namespace robotics {
      * @param index to index ,eg: 1
      * @param color to color ,eg: 0xFF0000
      */
-    //% block="RGB %index show color %color"
+    //% block="RGB LEDs %index show color %color"
     //% group="RGB"
     //% index.min=1 index.max=7
     //% color.shadow="colorNumberPicker"
@@ -425,7 +425,7 @@ namespace robotics {
     }
 
     /**
-     * Turn off all RGB lights.
+     * Turn off all RGB LEDs lights.
      */
     //% block="clear all RGB LEDs"
     //% group="RGB"
@@ -539,13 +539,13 @@ namespace robotics {
     }
 
     /**
-     * Set RGB lights to display gradient colors; range: 1~360.
+     * Set RGB LEDs lights to display gradient colors; range: 1~360.
      * @param start to start ,eg: 1
      * @param end to end ,eg: 5
      * @param startHue to startHue ,eg: 1
      * @param endHue to endHue ,eg: 360
      */
-    //% block="RGB %start to %end show gradient color from %startHue to %endHue"
+    //% block="RGB LEDs %start to %end show gradient color from %startHue to %endHue"
     //% group="RGB"
     //% start.min=1 start.max=7 
     //% end.min=1 end.max=7 
@@ -610,7 +610,7 @@ namespace robotics {
     }
 
     /**
-     * Set RGB light colors using primary colors (red, green, blue).
+     * Set RGB LEDs light colors using primary colors (red, green, blue).
      * @param red to red ,eg: 255
      * @param green to green ,eg: 255
      * @param blue to blue ,eg: 255

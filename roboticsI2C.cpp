@@ -4,7 +4,7 @@
 
 //% color=50 weight=80
 //% icon="\uf1eb"
-namespace i2c
+namespace roboticsI2C
 {
     //%
     void init()

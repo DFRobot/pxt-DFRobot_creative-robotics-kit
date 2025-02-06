@@ -14,7 +14,7 @@
         "_locales/zh-cn/robotics-jsdoc-strings.json",
         "_locales/es/robotics-strings.json",
         "_locales/es/robotics-jsdoc-strings.json",
-        "i2c.cpp",
+        "roboticsI2C.cpp",
         "enums.d.ts",
         "shims.d.ts"
     ],
