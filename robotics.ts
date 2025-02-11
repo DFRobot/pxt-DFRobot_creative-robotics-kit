@@ -12,7 +12,7 @@ namespace robotics {
         M1,
         //% block="M2"
         M2,
-        //% block="All"
+        //% block="all"
         All
     }
 
@@ -74,23 +74,18 @@ namespace robotics {
     let neopixelBuf: Buffer;
     let ledsum = -1;
 
-    //% advanced=true shim=roboticsI2C::init
-    function init(): void {
-        return;
-    }
     
     /**
      * Set the speed of M1 and M2 motors, which can be configured separately or together.
-     * @param motor to motor, eg: robotics.MotorType.M1
-     * @param dir to dir, eg: robotics.MotorDirection.CW
-     * @param speed to speed, eg: 100
+     * @param motor ..., eg: robotics.MotorType.M1
+     * @param dir ..., eg: robotics.MotorDirection.CW
+     * @param speed ..., eg: 100
      */
-    //% block="Motor %motor dir %dir speed %speed"
+    //% block="motor %motor dir %dir speed %speed"
     //% group="Motor"
     //% speed.min=0 speed.max=255
     //% weight=100
     export function motorRun(motor: MotorType, dir: MotorDirection, speed: number): void {
-        init();
         let buf = pins.createBufferFromArray([0x00, dir, speed]);
         switch (motor) {
             case MotorType.M1:
@@ -113,9 +108,9 @@ namespace robotics {
 
     /**
      * Stop the rotation of M1 and M2 motors, which can be configured separately or together.
-     * @param motor to motor, eg: robotics.MotorType.M1
+     * @param motor ..., eg: robotics.MotorType.M1
      */
-    //% block="Motor stop %motor"
+    //% block="motor stop %motor"
     //% group="Motor"
     //% weight=95
     export function motorStop(motor: MotorType): void {
@@ -125,8 +120,8 @@ namespace robotics {
 
     /**
      * Set the angle of a 180° servo motor, range: 0~180°.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
-     * @param degree to degree, eg: 90
+     * @param pin ..., eg: robotics.CustomAllPin.P0
+     * @param degree ..., eg: 90
      */
     //% block="set pin %pin servo to %degree=protractorPicker degree"
     //% group="Servo"
@@ -141,9 +136,9 @@ namespace robotics {
 
     /**
      * Set the forward and reverse speed of a 360° servo motor, range: 0~100.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
-     * @param speed to speed, eg: 50
-     * @param dir to dir, eg: robotics.MotorDirection.CW
+     * @param pin ..., eg: robotics.CustomAllPin.P0
+     * @param speed ..., eg: 50
+     * @param dir ..., eg: robotics.MotorDirection.CW
      */
     //% block="pin $pin servo rotate $dir at $speed \\% speed"
     //% group="Servo"
@@ -159,9 +154,9 @@ namespace robotics {
 
     /**
      * Read the distance detected by the ultrasonic sensor, in centimeters.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
+     * @param pin ..., eg: robotics.CustomAllPin.P0
      */
-    //% block="Get ultrasonic sensor range from pins %pin in units(cm)"
+    //% block="get ultrasonic sensor range from pin %pin in units(cm)"
     //% group="Sensor"
     //% weight=80
     export function readUltrasonicData(pin: CustomAllPin): number {
@@ -176,9 +171,9 @@ namespace robotics {
 
     /**
      * Read the state of the line-tracking sensor (digital value): outputs 0 when detecting a black line, and 1 when detecting a white line.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
+     * @param pin ..., eg: robotics.CustomAllPin.P0
      */
-    //% block="Read Line tracking sensor %pin state"
+    //% block="read line tracking sensor %pin state"
     //% group="Sensor"
     //% weight=75
     export function readLineTrackingData(pin: CustomAllPin): number {
@@ -188,9 +183,9 @@ namespace robotics {
 
     /**
      * Read the soil moisture value (analog value), range: 0~1023.
-     * @param pin to pin, eg: robotics.CustomAnalogPin.P0
+     * @param pin ..., eg: robotics.CustomAnalogPin.P0
      */
-    //% block="Read pin %pin soil moisture sensor"
+    //% block="read pin %pin soil moisture sensor"
     //% group="Sensor"
     //% weight=73
     export function readMoistureData(pin: CustomAnalogPin): number {
@@ -200,10 +195,10 @@ namespace robotics {
 
     /**
      * Read the temperature and humidity values from the DHT11 sensor. Temperature values are available in two units: °C and °F. Humidity is expressed in "%".
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
-     * @param type to type, eg: robotics.DataType.TemperatureC
+     * @param pin ..., eg: robotics.CustomAllPin.P0
+     * @param type ..., eg: robotics.DataType.TemperatureC
      */
-    //% block="Read pin %pin %type"
+    //% block="read pin %pin %type"
     //% group="Sensor"
     //% weight=70
     export function readDht11Data(pin: CustomAllPin, type: DataType): number {
@@ -294,9 +289,9 @@ namespace robotics {
 
     /**
      * Read the value from the ambient light sensor (analog value).
-     * @param pin to pin, eg: robotics.CustomAnalogPin.P0
+     * @param pin ..., eg: robotics.CustomAnalogPin.P0
      */
-    //% block="Read pin %pin Ambient light"
+    //% block="read pin %pin ambient light"
     //% group="Sensor"
     //% weight=65
     export function readLightData(pin: CustomAnalogPin): number {
@@ -306,9 +301,9 @@ namespace robotics {
 
     /**
      * Read the value detected by the human infrared sensor (digital value). Outputs 1 when motion is detected; outputs 0 when no motion is detected.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
+     * @param pin ..., eg: robotics.CustomAllPin.P0
      */
-    //% block="Read pin %pin Digital infrared motion sensor"
+    //% block="read pin %pin digital infrared motion sensor"
     //% group="Sensor"
     //% weight=60
     export function readInfraredData(pin: CustomAllPin): number {
@@ -318,8 +313,8 @@ namespace robotics {
 
     /**
      * Set the total number of RGB lights.
-     * @param pin to pin, eg: robotics.CustomAllPin.P0
-     * @param num to num, eg: 3
+     * @param pin ..., eg: robotics.CustomAllPin.P0
+     * @param num ..., eg: 3
      */
     //% block="pin $pin $num RGB LEDs"
     //% group="RGB"
@@ -337,7 +332,7 @@ namespace robotics {
 
     /**
      * Set the brightness of RGB LEDs lights.
-     * @param brightness to brightness, eg: 200
+     * @param brightness ..., eg: 200
      */
     //% block="RGB LEDs brightness %brightness"
     //% group="RGB"
@@ -350,8 +345,8 @@ namespace robotics {
 
     /**
      * Set the starting and ending light numbers for the RGB LEDs lights.
-     * @param from to start ,eg: 1
-     * @param to to end ,eg: 2
+     * @param from ..., eg: 1
+     * @param to ..., eg: 2
      */
 
     //% block="RGB LEDs from %from to %to"
@@ -366,8 +361,8 @@ namespace robotics {
 
     /**
      * Set the display color for a specific light number.
-     * @param index to index ,eg: 1
-     * @param color to color ,eg: 0xFF0000
+     * @param index ..., eg: 1
+     * @param color ..., eg: 0xFF0000
      */
     //% block="RGB LEDs %index show color %color"
     //% group="RGB"
@@ -401,7 +396,7 @@ namespace robotics {
 
     /**
      * Set the display color for all light numbers.
-     * @param color to color ,eg: 0xFF0000
+     * @param color ..., eg: 0xFF0000
      */
 
     //% block="show color %color"
@@ -437,7 +432,7 @@ namespace robotics {
 
     /**
      * Move or transform the color or state on the light strip by x units.
-     * @param offset to offset ,eg: 0
+     * @param offset ..., eg: 0
      */
     //% block="shift pixels by %offset"
     //% group="RGB"
@@ -481,7 +476,7 @@ namespace robotics {
 
     /**
      * Cycle the color or state on the light strip by x units.
-     * @param offset to offset ,eg: 0
+     * @param offset ..., eg: 0
      */
     //% block="rotate pixels by %offset"
     //% group="RGB"
@@ -540,10 +535,10 @@ namespace robotics {
 
     /**
      * Set RGB LEDs lights to display gradient colors; range: 1~360.
-     * @param start to start ,eg: 1
-     * @param end to end ,eg: 5
-     * @param startHue to startHue ,eg: 1
-     * @param endHue to endHue ,eg: 360
+     * @param start ..., eg: 1
+     * @param end ..., eg: 5
+     * @param startHue ..., eg: 1
+     * @param endHue ..., eg: 360
      */
     //% block="RGB LEDs %start to %end show gradient color from %startHue to %endHue"
     //% group="RGB"
@@ -611,9 +606,9 @@ namespace robotics {
 
     /**
      * Set RGB LEDs light colors using primary colors (red, green, blue).
-     * @param red to red ,eg: 255
-     * @param green to green ,eg: 255
-     * @param blue to blue ,eg: 255
+     * @param red ..., eg: 255
+     * @param green ..., eg: 255
+     * @param blue ..., eg: 255
      */
     //% block="red %red green %green blue %blue"
     //% group="RGB"
