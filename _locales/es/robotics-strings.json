@@ -1,5 +1,5 @@
 {
-    "robotics.motorRun|block": "Motor %motor dir %dir velocidad %speed",
+    "robotics.motorRun|block": "Motor %motor dirección %direction velocidad %speed",
     "robotics.motorStop|block": "Parar motor %motor",
     "robotics.servoRun180|block": "fijar pin %pin servo a %degree=protractorPicker grados",
     "robotics.servoRun360|block": "pin $pin rotar servo $dir a $speed \\% velocidad",

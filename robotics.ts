@@ -78,15 +78,15 @@ namespace robotics {
     /**
      * Set the speed of M1 and M2 motors, which can be configured separately or together.
      * @param motor ..., eg: robotics.MotorType.M1
-     * @param dir ..., eg: robotics.MotorDirection.CW
+     * @param direction ..., eg: robotics.MotorDirection.CW
      * @param speed ..., eg: 100
      */
-    //% block="motor %motor dir %dir speed %speed"
+    //% block="motor %motor direction %direction speed %speed"
     //% group="Motor"
     //% speed.min=0 speed.max=255
     //% weight=100
-    export function motorRun(motor: MotorType, dir: MotorDirection, speed: number): void {
-        let buf = pins.createBufferFromArray([0x00, dir, speed]);
+    export function motorRun(motor: MotorType, direction: MotorDirection, speed: number): void {
+        let buf = pins.createBufferFromArray([0x00, direction, speed]);
         switch (motor) {
             case MotorType.M1:
                 buf[0] = 0x00;
